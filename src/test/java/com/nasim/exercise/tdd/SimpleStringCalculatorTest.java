@@ -5,6 +5,6 @@ import org.junit.Test;
 public class SimpleStringCalculatorTest {
     @Test
     public void add_forEmptyString_returnsZero() {
-
+        SimpleStringCalculator simpleStringCalculator = new SimpleStringCalculator();
     }
 }
