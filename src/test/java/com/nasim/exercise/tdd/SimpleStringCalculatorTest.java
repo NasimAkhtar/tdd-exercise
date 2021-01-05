@@ -6,5 +6,6 @@ public class SimpleStringCalculatorTest {
     @Test
     public void add_forEmptyString_returnsZero() {
         SimpleStringCalculator simpleStringCalculator = new SimpleStringCalculator();
+        simpleStringCalculator.add("");
     }
 }
