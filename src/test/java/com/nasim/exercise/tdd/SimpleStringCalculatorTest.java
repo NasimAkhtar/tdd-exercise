@@ -67,4 +67,11 @@ public class SimpleStringCalculatorTest {
         exceptionRule.expectMessage("negatives not allowed"+ "-1");
         simpleStringCalculator.add("-1");
     }
+
+    @Test
+    public void add_forMultipleNegativeNumber_alwaysThrows() {
+        exceptionRule.expect(NumberFormatException.class);
+        exceptionRule.expectMessage("negatives not allowed"+ "-1,-2");
+        simpleStringCalculator.add("-1,-2");
+    }
 }
