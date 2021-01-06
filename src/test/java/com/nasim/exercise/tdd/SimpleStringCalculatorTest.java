@@ -41,4 +41,11 @@ public class SimpleStringCalculatorTest {
 
         assertEquals(6, result);
     }
+
+    @Test
+    public void add_numbersWithNewLine_returnSum() {
+        int result = simpleStringCalculator.add("1\n2,3");
+
+        assertEquals(6, result);
+    }
 }
