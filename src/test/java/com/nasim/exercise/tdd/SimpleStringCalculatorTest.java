@@ -34,4 +34,11 @@ public class SimpleStringCalculatorTest {
 
         assertEquals(3, result);
     }
+
+    @Test
+    public void add_forMultipleNumbers_returnsSum() {
+        int result = simpleStringCalculator.add("1,2,3");
+
+        assertEquals(6, result);
+    }
 }
