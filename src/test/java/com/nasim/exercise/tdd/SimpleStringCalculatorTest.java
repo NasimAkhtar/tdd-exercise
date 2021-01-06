@@ -22,4 +22,13 @@ public class SimpleStringCalculatorTest {
 
         assertEquals(1, result);
     }
+
+    @Test
+    public void add_forTwoNumbers_returnsSum() {
+        SimpleStringCalculator simpleStringCalculator = new SimpleStringCalculator();
+
+        int result = simpleStringCalculator.add("1,2");
+
+        assertEquals(3, result);
+    }
 }
