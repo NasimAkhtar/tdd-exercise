@@ -1,5 +1,7 @@
 package com.nasim.exercise.tdd;
 
+import java.util.regex.Pattern;
+
 public class SimpleStringCalculator {
     public int add(String numbers) {
         if (numbers.isEmpty()) return 0;
@@ -8,12 +10,8 @@ public class SimpleStringCalculator {
 
     private int parse(String numbers) {
         String[] numbersArray;
-        if (numbers.contains("\\n")) {
-            String[] delimiterAndNumbersArray = numbers.split("\\n");
-            numbersArray = delimiterAndNumbersArray[1].split(delimiterAndNumbersArray[0]);
-        } else {
-            numbersArray = numbers.split(",");
-        }
+        numbers = numbers.replace("\n", ",");
+        numbersArray = numbers.split(",");
         return sum(numbersArray);
     }
 
