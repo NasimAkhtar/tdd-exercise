@@ -64,6 +64,7 @@ public class SimpleStringCalculatorTest {
     @Test
     public void add_forNegativeNumber_alwaysThrows() {
         exceptionRule.expect(NumberFormatException.class);
+        exceptionRule.expectMessage("negatives not allowed"+ "-1");
         simpleStringCalculator.add("-1");
     }
 }
