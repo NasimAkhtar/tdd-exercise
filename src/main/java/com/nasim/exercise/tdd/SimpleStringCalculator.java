@@ -7,6 +7,6 @@ public class SimpleStringCalculator {
     }
 
     private int parse(String numbers) {
-        return 0;
+        return Integer.parseInt(numbers);
     }
 }
