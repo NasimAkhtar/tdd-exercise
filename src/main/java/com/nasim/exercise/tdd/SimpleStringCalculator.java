@@ -8,6 +8,10 @@ public class SimpleStringCalculator {
 
     private int parse(String numbers) {
         String[] numbersArray = numbers.split(",");
+        return sum(numbersArray);
+    }
+
+    private int sum(String[] numbersArray) {
         int sum = 0;
         for (String number: numbersArray) {
             sum += Integer.parseInt(number);
