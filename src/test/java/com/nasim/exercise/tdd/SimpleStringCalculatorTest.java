@@ -1,7 +1,9 @@
 package com.nasim.exercise.tdd;
 
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 
@@ -54,5 +56,14 @@ public class SimpleStringCalculatorTest {
         int result = simpleStringCalculator.add(";\n1;2");
 
         assertEquals(3, result);
+    }
+
+    @Rule
+    public ExpectedException exceptionRule = ExpectedException.none();
+
+    @Test
+    public void add_forNegativeNumber_alwaysThrows() {
+        exceptionRule.expect(NumberFormatException.class);
+        simpleStringCalculator.add("-1");
     }
 }
