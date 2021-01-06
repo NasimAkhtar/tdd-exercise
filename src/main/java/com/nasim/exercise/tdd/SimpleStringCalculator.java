@@ -7,6 +7,11 @@ public class SimpleStringCalculator {
     }
 
     private int parse(String numbers) {
-        return Integer.parseInt(numbers);
+        String[] numbersArray = numbers.split(",");
+        int sum = 0;
+        for (String number: numbersArray) {
+            sum += Integer.parseInt(number);
+        }
+        return sum;
     }
 }
