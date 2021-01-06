@@ -17,14 +17,26 @@ public class SimpleStringCalculator {
         if(firstCharIsANumber && !numbers.contains("\n")) {
             numbersArray = numbers.split(",");
         } else if (firstCharIsANumber && numbers.contains("\n")) {
-            numbers = numbers.replace("\n", ",");
-            numbersArray = numbers.split(",");
+            numbersArray = parseNewLineDelimiter(numbers);
         } else {
-            String[] split = numbers.split("\n");
-            String delimiter = split[0];
-            numbersArray = split[1].split(delimiter);
+            numbersArray = parseDefaultDelimiter(numbers);
         }
         return sum(numbersArray);
+    }
+
+    private String[] parseNewLineDelimiter(String numbers) {
+        String[] numbersArray;
+        numbers = numbers.replace("\n", ",");
+        numbersArray = numbers.split(",");
+        return numbersArray;
+    }
+
+    private String[] parseDefaultDelimiter(String numbers) {
+        String[] numbersArray;
+        String[] split = numbers.split("\n");
+        String delimiter = split[0];
+        numbersArray = split[1].split(delimiter);
+        return numbersArray;
     }
 
     private boolean isANumber(Character firstChar) {
