@@ -74,4 +74,10 @@ public class SimpleStringCalculatorTest {
         exceptionRule.expectMessage("negatives not allowed"+ "-1,-2");
         simpleStringCalculator.add("-1,-2");
     }
+
+    @Test
+    public void add_forNumberGreaterThanThousand_WouldBeIgnored() {
+        int result = simpleStringCalculator.add("1,1001");
+        assertEquals(1, result);
+    }
 }
