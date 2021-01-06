@@ -48,4 +48,11 @@ public class SimpleStringCalculatorTest {
 
         assertEquals(6, result);
     }
+
+    @Test
+    public void add_supportDifferentDelimiters_returnSum() {
+        int result = simpleStringCalculator.add("\\;\\n1;2");
+
+        assertEquals(6, result);
+    }
 }
