@@ -7,7 +7,13 @@ public class SimpleStringCalculator {
     }
 
     private int parse(String numbers) {
-        String[] numbersArray = numbers.split("\\s*[,\\n]\\s*");
+        String[] numbersArray;
+        if (numbers.contains("\\n")) {
+            String[] delimiterAndNumbersArray = numbers.split("\\n");
+            numbersArray = delimiterAndNumbersArray[1].split(delimiterAndNumbersArray[0]);
+        } else {
+            numbersArray = numbers.split(",");
+        }
         return sum(numbersArray);
     }
 
