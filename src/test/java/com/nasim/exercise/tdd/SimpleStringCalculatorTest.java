@@ -13,4 +13,13 @@ public class SimpleStringCalculatorTest {
 
         assertEquals(0, result);
     }
+
+    @Test
+    public void add_forSingleNumber_returnThatNumber() {
+        SimpleStringCalculator simpleStringCalculator = new SimpleStringCalculator();
+
+        int result = simpleStringCalculator.add("1");
+
+        assertEquals(1, result);
+    }
 }
