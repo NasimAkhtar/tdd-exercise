@@ -39,7 +39,8 @@ public class SimpleStringCalculator {
     private int sum(String[] numbersArray) {
         int sum = 0;
         for (String number: numbersArray) {
-            sum += Integer.parseInt(number);
+            int value = Integer.parseInt(number);
+            if (value <= 1000) sum += value;
         }
         return sum;
     }
