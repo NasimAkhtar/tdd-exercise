@@ -3,6 +3,7 @@ package com.nasim.exercise.tdd;
 public class SimpleStringCalculator {
     public int add(String numbers) {
         if (numbers.isEmpty()) return 0;
+        if (numbers.contains("-")) throw new NumberFormatException("negatives not allowed" + numbers);
         if (numbers.length() == 1) return Integer.parseInt(numbers);
         return parse(numbers);
     }
