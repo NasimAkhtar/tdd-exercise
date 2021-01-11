@@ -35,8 +35,7 @@ public class SimpleStringCalculator {
         String[] numbersArray;
         String[] split = numbers.split("\n");
         String delimiter = split[0];
-        numbersArray = split[1].split(delimiter);
-        return numbersArray;
+        return split[1].replace(delimiter, ",").split(",");
     }
 
     private boolean isANumber(Character firstChar) {
