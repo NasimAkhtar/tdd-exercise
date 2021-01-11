@@ -80,4 +80,11 @@ public class SimpleStringCalculatorTest {
         int result = simpleStringCalculator.add("1,1001");
         assertEquals(1, result);
     }
+
+    @Test
+    public void add_forDelimiterWithAnyLength_returnSum() {
+        int result = simpleStringCalculator.add("***\n1***2***3");
+
+        assertEquals(6, result);
+    }
 }
