@@ -32,10 +32,15 @@ public class SimpleStringCalculator {
     }
 
     private String[] parseDefaultDelimiter(String numbers) {
-        String[] numbersArray;
         String[] split = numbers.split("\n");
-        String delimiter = split[0];
-        return split[1].replace(delimiter, ",").split(",");
+
+        String delimiter = split[0]
+                .replace("[", "")
+                .replace("]","");
+
+        return split[1]
+                .replace(delimiter, ",")
+                .split(",");
     }
 
     private boolean isANumber(Character firstChar) {

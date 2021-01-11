@@ -83,7 +83,7 @@ public class SimpleStringCalculatorTest {
 
     @Test
     public void add_forDelimiterWithAnyLength_returnSum() {
-        int result = simpleStringCalculator.add("***\n1***2***3");
+        int result = simpleStringCalculator.add("[***]\n1***2***3");
 
         assertEquals(6, result);
     }
