@@ -1,5 +1,7 @@
 package com.nasim.exercise.tdd;
 
+import java.util.HashSet;
+
 public class SimpleStringCalculator {
     public int add(String numbers) {
         if (numbers.isEmpty()) return 0;
@@ -10,7 +12,7 @@ public class SimpleStringCalculator {
 
     private int parse(String numbers) {
         char firstChar = numbers.charAt(0);
-        boolean firstCharIsANumber = isANumber(firstChar);
+        boolean firstCharIsANumber = isANumber(String.valueOf(firstChar));
 
         String[] numbersArray;
 
@@ -34,18 +36,29 @@ public class SimpleStringCalculator {
     private String[] parseDefaultDelimiter(String numbers) {
         String[] split = numbers.split("\n");
 
-        String delimiter = split[0]
+        String delimiters = split[0]
                 .replace("[", "")
                 .replace("]","");
 
+        if (delimiters.length() > 1) {
+            HashSet<Character> delimitersSet = new HashSet<>();
+            for (Character delimiter: delimiters.toCharArray()) {
+                delimitersSet.add(delimiter);
+            }
+            for (Character delimiter: delimitersSet) {
+                split[1] = split[1].replace(delimiter, ',');
+            }
+        } else {
+            split[1] = split[1].replace(delimiters, ",");
+        }
+
         return split[1]
-                .replace(delimiter, ",")
                 .split(",");
     }
 
-    private boolean isANumber(Character firstChar) {
+    private boolean isANumber(String number) {
         try {
-            Integer.parseInt(firstChar.toString());
+            Integer.parseInt(number);
             return true;
         } catch (NumberFormatException e) {
             return false;
@@ -55,8 +68,10 @@ public class SimpleStringCalculator {
     private int sum(String[] numbersArray) {
         int sum = 0;
         for (String number: numbersArray) {
-            int value = Integer.parseInt(number);
-            if (value <= 1000) sum += value;
+            if (isANumber(number)) {
+                int value = Integer.parseInt(number);
+                if (value <= 1000) sum += value;
+            }
         }
         return sum;
     }
