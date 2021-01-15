@@ -92,4 +92,10 @@ public class SimpleStringCalculatorTest {
         int result = simpleStringCalculator.add("[*][%]\n1*2%3");
         assertEquals(6, result);
     }
+
+    @Test
+    public void add_allowMultipleDelimiterWithLongerThanOneChar_returnSum() {
+        int result = simpleStringCalculator.add("[**][%%]\n1**2%%3");
+        assertEquals(6, result);
+    }
 }
